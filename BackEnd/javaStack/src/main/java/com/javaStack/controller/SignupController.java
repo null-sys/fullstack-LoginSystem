@@ -15,7 +15,7 @@ import com.javaStack.services.SignupService;
 public class SignupController {
 	
 	@PostMapping()
-	String signupUser(@RequestBody User newUser) {
+	public String signupUser(@RequestBody User newUser) {
 		SignupService signup1 = new SignupService();
 		return signup1.signupUser(newUser.getFirstName(), newUser.getLastName(), newUser.getEmail(), newUser.getPassword());
 	  }

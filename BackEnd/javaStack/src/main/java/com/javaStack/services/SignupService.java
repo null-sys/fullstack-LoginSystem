@@ -3,6 +3,7 @@ package com.javaStack.services;
 import com.javaStack.dao.AddUserDao;
 import com.javaStack.dao.GetUsersDao;
 import com.javaStack.entity.User;
+import com.javaStack.security.JWT;
 
 public class SignupService {
 	
@@ -17,7 +18,7 @@ public class SignupService {
 			AddUserDao addUser1 = new AddUserDao();
 			Boolean a  = addUser1.registerUser(fName, lName, email, password);
 			if(a) {
-				return "user Added";
+				return JWT.createJWT(email, 10000000);
 			}
 		}
 		
