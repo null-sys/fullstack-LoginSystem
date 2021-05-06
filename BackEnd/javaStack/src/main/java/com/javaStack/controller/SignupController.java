@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.javaStack.entity.JWTReturn;
 import com.javaStack.entity.User;
 import com.javaStack.services.SignupService;
 
@@ -15,7 +16,7 @@ import com.javaStack.services.SignupService;
 public class SignupController {
 	
 	@PostMapping()
-	public String signupUser(@RequestBody User newUser) {
+	public JWTReturn signupUser(@RequestBody User newUser) {
 		SignupService signup1 = new SignupService();
 		return signup1.signupUser(newUser.getFirstName(), newUser.getLastName(), newUser.getEmail(), newUser.getPassword());
 	  }
